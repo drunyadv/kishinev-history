@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>История города Кишинёв</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="book-container">
+    <div class="book-cover" id="bookCover">
+      <img class="illustration" src="images/cover.png" alt="Обложка">
+      <button id="openBook">Открыть книгу</button>
+    </div>
+    <div class="book" style="display:none;">
+      <nav class="toc">
+        <h2>Оглавление</h2>
+        <ul id="toc-list">
+          <li data-chapter="0">Обложка</li>
+          <li data-chapter="1">Глава 1: Основание города</li>
+          <li data-chapter="2">Глава 2: XIX век</li>
+          <li data-chapter="3">Глава 3: XX век</li>
+          <li data-chapter="4">Современность</li>
+        </ul>
+      </nav>
+      <div class="page left-page" id="leftPage"></div>
+      <div class="page right-page" id="rightPage"></div>
+    </div>
+    <div class="nav-btns-container" style="display:none;">
+      <button id="prevPage" class="nav-btn">&#8592; Назад</button>
+      <button id="nextPage" class="nav-btn">Вперёд &#8594;</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html> 

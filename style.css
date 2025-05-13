@@ -1,0 +1,248 @@
+body {
+  background: #e7d3b1 url('images/paper_texture.jpg') repeat;
+  color: #3e2d16;
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.book-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.book {
+  background: #f5ecd7;
+  border-radius: 18px;
+  box-shadow: 0 8px 48px #a88d5e99, 0 0 0 12px #bfa06a, 0 0 0 16px #7c5a2b;
+  padding: 0;
+  position: relative;
+  min-width: 1100px;
+  min-height: 700px;
+  perspective: 2200px;
+  border: 8px solid #bfa06a;
+  outline: 4px solid #7c5a2b;
+  overflow: visible;
+}
+
+.book-cover {
+  background: #e7d3b1 url('images/paper_texture.jpg') repeat;
+  border-radius: 18px;
+  box-shadow: 0 8px 48px #a88d5e99, 0 0 0 12px #bfa06a, 0 0 0 16px #7c5a2b;
+  padding: 80px 100px 60px 100px;
+  text-align: center;
+  margin-bottom: 32px;
+  border: 8px solid #bfa06a;
+  outline: 4px solid #7c5a2b;
+  position: relative;
+  z-index: 10;
+  transition: transform 1.2s cubic-bezier(0.4,0.2,0.2,1);
+}
+.book-cover img.illustration {
+  max-width: 420px;
+  margin: 0 auto 32px auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px #a88d5e99;
+}
+
+.book-cover h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8em;
+  color: #3e2d16;
+  margin-bottom: 24px;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 0 #fff8e1;
+}
+
+#openBook {
+  background: #bfa06a;
+  color: #3e2d16;
+  border: 2px solid #7c5a2b;
+  border-radius: 8px;
+  padding: 16px 40px;
+  font-size: 1.3em;
+  font-family: 'Playfair Display', serif;
+  cursor: pointer;
+  margin-top: 32px;
+  box-shadow: 0 2px 8px #a88d5e99;
+  transition: background 0.2s, color 0.2s;
+}
+#openBook:hover {
+  background: #7c5a2b;
+  color: #fff8e1;
+}
+
+.page {
+  width: 480px;
+  min-height: 640px;
+  background: #f5ecd7 url('images/paper_texture.jpg') repeat;
+  border-radius: 12px;
+  margin: 0 0px;
+  box-shadow: 0 2px 24px #a88d5e99, 0 0 0 2px #bfa06a;
+  padding: 48px 36px 36px 36px;
+  overflow: auto;
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: box-shadow 0.2s, transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
+  z-index: 1;
+  font-size: 1.35em;
+  line-height: 1.7;
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  color: #2d1a07;
+  font-weight: 500;
+  animation: pageFadeIn 0.7s;
+  border: 2px solid #bfa06a;
+}
+.left-page {
+  border-right: 2px solid #bfa06a;
+  transform-origin: left center;
+}
+.right-page {
+  border-left: 2px solid #bfa06a;
+  transform-origin: right center;
+}
+
+.page h2, .page h3 {
+  font-family: 'Playfair Display', serif;
+  color: #5a2d0c;
+  font-size: 2.1em;
+  font-weight: 700;
+  margin-top: 0;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 6px #f5ecd7cc;
+}
+
+.page b, .page strong {
+  font-weight: 700;
+  color: #7c5a2b;
+}
+
+.page blockquote {
+  font-style: italic;
+  color: #a88d5e;
+  border-left: 4px solid #bfa06a;
+  margin: 24px 0;
+  padding-left: 18px;
+}
+
+img.illustration {
+  max-width: 100%;
+  border-radius: 6px;
+  margin: 18px 0;
+  box-shadow: 0 2px 12px #a88d5e99;
+}
+
+.toc {
+  position: absolute;
+  left: -240px;
+  top: 0;
+  width: 200px;
+  background: #f5ecd7 url('images/paper_texture.jpg') repeat;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #a88d5e99;
+  padding: 20px 16px;
+  color: #7c5a2b;
+  border: 2px solid #bfa06a;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.18em;
+  font-weight: 600;
+}
+.toc h2 {
+  font-size: 1.2em;
+  margin-bottom: 12px;
+  color: #7c5a2b;
+}
+.toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.toc li {
+  cursor: pointer;
+  margin-bottom: 10px;
+  color: #3e2d16;
+  font-size: 1.1em;
+  border-left: 4px solid transparent;
+  padding-left: 8px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.toc li:hover, .toc li.active {
+  color: #bfa06a;
+  border-left: 4px solid #bfa06a;
+}
+
+.nav-btns-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.nav-btn {
+  background: #bfa06a;
+  color: #3e2d16;
+  border: 2px solid #7c5a2b;
+  border-radius: 8px;
+  padding: 16px 36px;
+  font-size: 1.18em;
+  font-family: 'Playfair Display', serif;
+  cursor: pointer;
+  margin: 0 24px;
+  box-shadow: 0 2px 8px #a88d5e99;
+  transition: background 0.2s, color 0.2s;
+  font-weight: 600;
+}
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.nav-btn:hover:not(:disabled) {
+  background: #7c5a2b;
+  color: #fff8e1;
+}
+
+#toCoverBtn {
+  background: none;
+  color: #7c5a2b;
+  border: none;
+  font-size: 1.1em;
+  font-family: 'Playfair Display', serif;
+  cursor: pointer;
+  margin-bottom: 18px;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+#toCoverBtn:hover {
+  color: #bfa06a;
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Улучшенная анимация перелистывания */
+.page.flipping-left {
+  z-index: 2;
+  animation: pageFlipLeft 1.4s cubic-bezier(0.4,0.2,0.2,1) forwards;
+}
+.page.flipping-right {
+  z-index: 2;
+  animation: pageFlipRight 1.4s cubic-bezier(0.4,0.2,0.2,1) forwards;
+}
+@keyframes pageFlipLeft {
+  0% { transform: rotateY(0deg) scaleX(1); box-shadow: 0 2px 24px #a88d5e99; opacity: 1; }
+  30% { box-shadow: 0 24px 48px #a88d5e99, 20px 0 40px #bfa06a88; }
+  60% { transform: rotateY(-90deg) scaleX(1.05); box-shadow: 0 32px 64px #a88d5e33, 40px 0 60px #bfa06a55; opacity: 0.7; }
+  100% { transform: rotateY(-180deg) scaleX(1.1); box-shadow: 0 32px 64px #a88d5e33, 60px 0 80px #bfa06a33; opacity: 0.1; }
+}
+@keyframes pageFlipRight {
+  0% { transform: rotateY(0deg) scaleX(1); box-shadow: 0 2px 24px #a88d5e99; opacity: 1; }
+  30% { box-shadow: 0 24px 48px #a88d5e99, -20px 0 40px #bfa06a88; }
+  60% { transform: rotateY(90deg) scaleX(1.05); box-shadow: 0 32px 64px #a88d5e33, -40px 0 60px #bfa06a55; opacity: 0.7; }
+  100% { transform: rotateY(180deg) scaleX(1.1); box-shadow: 0 32px 64px #a88d5e33, -60px 0 80px #bfa06a33; opacity: 0.1; }
+} 
