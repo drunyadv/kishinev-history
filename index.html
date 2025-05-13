@@ -5,30 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>История города Кишинёв</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="book-container">
-    <div class="book-cover" id="bookCover">
-      <img class="illustration" src="images/cover.png" alt="Обложка">
-      <button id="openBook">Открыть книгу</button>
-    </div>
-    <div class="book" style="display:none;">
+  <div id="cover3d" class="cover-3d">
+    <img src="images/cover.png" alt="Обложка" class="cover-3d-img">
+  </div>
+  <div class="book-container" style="display:none;">
+    <div class="book">
       <nav class="toc">
         <h2>Оглавление</h2>
         <ul id="toc-list">
-          <li data-chapter="0">Обложка</li>
-          <li data-chapter="1">Глава 1: Основание города</li>
-          <li data-chapter="2">Глава 2: XIX век</li>
-          <li data-chapter="3">Глава 3: XX век</li>
-          <li data-chapter="4">Современность</li>
+          <li data-chapter="0">Глава 1: Основание города</li>
+          <li data-chapter="1">Глава 2: XIX век</li>
+          <li data-chapter="2">Глава 3: Межвоенный период (1918–1940)</li>
+          <li data-chapter="3">Глава 4: XX век</li>
+          <li data-chapter="4">Глава 5: Современность</li>
+          <li data-chapter="5">Заключение</li>
         </ul>
       </nav>
+      <button id="toCoverBtn" style="display:none;">На обложку</button>
       <div class="page left-page" id="leftPage"></div>
       <div class="page right-page" id="rightPage"></div>
-    </div>
-    <div class="nav-btns-container" style="display:none;">
-      <button id="prevPage" class="nav-btn">&#8592; Назад</button>
-      <button id="nextPage" class="nav-btn">Вперёд &#8594;</button>
+      <button id="prevCorner" class="corner-arrow" title="Назад">
+        <svg viewBox="0 0 32 32"><path d="M20 8l-8 8 8 8"/></svg>
+      </button>
+      <button id="nextCorner" class="corner-arrow" title="Вперёд">
+        <svg viewBox="0 0 32 32"><path d="M12 8l8 8-8 8"/></svg>
+      </button>
     </div>
   </div>
   <script src="script.js"></script>
